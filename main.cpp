@@ -1,4 +1,11 @@
 #include <iostream>
+int * extend(const int * a, size_t k, size_t d, int filler);
+
+void extend(int ** ptr_a, size_t k, size_t d, int filler)
+{
+  int * new_array = extend(*ptr_a, k, d, filler);
+
+}
 
 int * extend(const int * a, size_t k, size_t d, int filler)
 {
