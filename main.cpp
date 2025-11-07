@@ -4,7 +4,8 @@ int * extend(const int * a, size_t k, size_t d, int filler);
 void extend(int ** ptr_a, size_t k, size_t d, int filler)
 {
   int * new_array = extend(*ptr_a, k, d, filler);
-
+  delete [] *ptr_a;
+  *ptr_a = new_array;
 }
 
 int * extend(const int * a, size_t k, size_t d, int filler)
@@ -23,11 +24,11 @@ int * extend(const int * a, size_t k, size_t d, int filler)
 
 int main()
 {
-  int array[5] = {1, 2, 3, 4, 4};
-  int * new_array = extend(array, 5, 10, 0);
+  int * array = new int[5]{1, 2, 3, 4, 5};
+  int **ptr_a = &array;
+  extend(ptr_a, 5, 10, 0);
   for (size_t i = 0; i < 10; i++)
   {
-    std::cout << new_array[i];
+    std::cout << array[i];
   }
-  std::cout << "\n";
 }
